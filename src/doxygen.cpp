@@ -7231,7 +7231,8 @@ static void addEnumValuesToEnums(const Entry *root)
                         if (!fmd->isStrongEnumValue()) // only non strong enum values can be globally added
                         {
                           const FileDef *ffd=fmd->getFileDef();
-                          if (ffd==fd) // enum value has file scope
+                          const FileDef *mfd=md->getFileDef();
+                          if (ffd==mfd) // enum value has file scope
                           {
                             md->insertEnumField(fmd);
                             fmd->setEnumScope(md);
